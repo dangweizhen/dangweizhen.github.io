@@ -5,7 +5,7 @@ subheading: hello world!
 author: Jeffrey
 categories: jekyll
 banner:
-  image: https://bit.ly/3fTktDu
+  image: /assets/images/banners/home.jpeg
   opacity: 0.618
   background: "#000"
   height: "100vh"
