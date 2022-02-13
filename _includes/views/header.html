@@ -6,7 +6,7 @@
 {%- include functions.html func='get_value' default=true -%}
 {%- assign header_transparent = return -%}
 
-{%- if banner_image and header_transparent -%}
+{%- if has_banner and header_transparent -%}
   {%- assign header_transparent_class = "site-header-transparent" -%}
 {%- endif -%}
 
@@ -44,6 +44,9 @@
             {%- include functions.html func='get_value' -%}
             {%- assign translate_langs = return -%}
             {%- if translate_langs.size > 0 -%}
+              {%- assign name = 'lang' -%}
+              {%- include functions.html func='get_value' default='en' -%}
+              {%- assign lang = return -%}
               <span class="page-link">
                   {%- include extensions/google-translate.html -%}
               </span>
@@ -56,7 +59,7 @@
 </header>
 
 <script>
-  (function() {
+  function initHeader() {
     var lastScrollY = getScrollPos().y;
     var documentElement = document.documentElement;
 
@@ -87,5 +90,6 @@
     });
 
     storeScrollData();
-  })();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
 </script>
